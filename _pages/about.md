@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ## Hello World
-```console
+```
 hoenn@xu:~$ whoami
 hoenn 
 
