@@ -6,23 +6,11 @@ author_profile: true
 ---
 
 ## Hello World
-```
-hoenn@xu:~$ whoami
-hoenn 
 
-hoenn@xu:~$ cat ~/.aboutme
-I'm a software engineer by day. I get to work on distributed systems
+`hoenn@xu:~$ cat ~/.aboutme`
 
-at work using some great technology
+I'm a software engineer by day. I get to work on distributed systems at work using some great technology like go, kubernetes, kafka, ...
 
-like go, kubernetes, kafka, ...
+But it's nice to take a step back from worrying about clients and scale and pagerduty. I'd like to share some of the personal projects I'm working on that re-energize my programming roots and have a go at technical writing as well.
 
-But it's nice to take a step back from worrying about clients
-
-and scale and pagerduty. I'd like to share some of the personal
-
-projects I'm working on that re-energize my programming roots and
-
-have a go at technical writing as well.
-hoenn@xu~:$ logout
-```
+`hoenn@xu~:$ logout`
