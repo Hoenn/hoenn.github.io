@@ -77,9 +77,9 @@ bindsym $mod+z fullscreen toggle
 
 # These were jkl; which may be homerow sensible
 bindsym $mod+h focus left
-bindsym $mod+j focus left
-bindsym $mod+k focus left
-bindsym $mod+l focus left 
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right 
 ```
 
 ### Appearance
