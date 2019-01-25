@@ -55,7 +55,7 @@ for_window [class"^.*"] border pixel 0
 gaps inner 30
 ```
 
-This removes the title bar from applications, apparently necessary. I also added one of the example gaps options so that I can see it take effect on reload. In this same file we can find that `mod+Shift+r` will is the default binding to restart i3, needed to see the config change take effect
+This removes the title bar from applications, apparently necessary. I also added one of the example gaps options so that I can see it take effect on reload. In this same file we can find that `mod+Shift+r` which is the default binding to restart i3, needed to see the config change take effect
 
 There are a multitude of `gaps` arguments, but for now I'll just use `inner` to see how it looks.
 
