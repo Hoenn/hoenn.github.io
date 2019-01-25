@@ -3,7 +3,7 @@ toc: true
 toc_label: "i3"
 toc_icon: "beer"
 toc_sticky: false
-thumbnail: /assets/images/i3/ubuntu.png
+thumbnail: /assets/images/i3/ubuntu-filled.png
 ---
 
 ## Background
