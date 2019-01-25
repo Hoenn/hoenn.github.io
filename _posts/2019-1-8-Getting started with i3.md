@@ -4,6 +4,11 @@ toc_label: "i3"
 toc_icon: "beer"
 toc_sticky: false
 thumbnail: /assets/images/i3/ubuntu-filled.png
+gallery:
+  - url: /assets/images/i3/last.png
+    image_path: /assets/images/i3/last.png
+    alt: "final state image"
+    title: "i3"
 ---
 
 ## Background
@@ -135,4 +140,4 @@ wal -R
 ## Conclusion
  Overall I think I vastly overestimated how hard it would be to at least get going with i3, having only heard about it from co-workers and admired from afar. There are a lot of resources to get going, though I had really bad results with the `compton` compositor and couldn't find many easy answers there. Next I'd like to get the rest of my usual kit setup on this new system.
 
-![image-center](/assets/images/i3/last.png){: .align-center}
+{% include gallery id="gallery" class="full"%}
