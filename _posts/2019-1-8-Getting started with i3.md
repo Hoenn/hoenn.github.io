@@ -3,7 +3,7 @@ toc: true
 toc_label: "Title"
 toc_icon: "child"
 toc_sticky: false
-thumbnail: /assets/images/ubuntu.png
+thumbnail: /assets/images/i3/ubuntu.png
 ---
 
 ### Background
