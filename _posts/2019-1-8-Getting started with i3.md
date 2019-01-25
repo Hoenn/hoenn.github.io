@@ -48,7 +48,7 @@ Now we can restart the VM. On the Ubuntu greeter pick an i3 session.
 
 Hitting `Mod+Return` (where `Mod` is the `Super` key by default ) we can launch a terminal. Launching a second and we see there are no gaps! Poking around the `i3-gaps` README it looks like I need to edit `~/.config/i3/config` and add 
 
-```
+```ini
 # Disable window titlebars
 for_window [class"^.*"] border pixel 0
 
@@ -69,7 +69,7 @@ The main reason I wanted to try out `i3` is because I'm starting to get annoyed 
 
 With that said, my brain is decently hardwired for my custom `tmux` bindings. Possibly against the grain, but `Mod+Shift+q` is just not comfortable to press. Here's my first pass at adjusting keybindings (careful to re-assign any overwrites)
 
-```
+```ini
 # These are more similar to what I'm used to in tmux
 bindsym $mod+q kill
 bindsym $mod+Shift+backslash split h
