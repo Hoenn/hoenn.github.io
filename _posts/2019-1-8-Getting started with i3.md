@@ -1,3 +1,11 @@
+---
+toc: true
+toc_label: "Title"
+toc_icon: "child"
+toc_sticky: false
+thumbnail: /assets/images/ubuntu.png
+---
+
 ### Background
 After months of using `tmux` as a dev environment I'm starting to see just how much I like the idea of a tiling window manager. For the sake of learning, I'm going to walk through the install of [i3](link) starting from a fresh [Ubuntu](http://releases.ubuntu.com/18.04/) install, and hopefully make it pretty by the end.
 
