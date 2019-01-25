@@ -13,7 +13,7 @@ After months of using `tmux` as a dev environment I'm starting to see just how m
 To start off I'll provision a new Virtual Machine in [VirtualBox](https://www.virtualbox.org/) with a decent amount of memory and disk space to accomodate software development. 4 gigs of RAM and 32 gigs for storage is probably more than I'll need, I can always adjust this later. I'll start off with this Ubuntu 18.04 iso, which has Gnome on it by default, then just finish the install onto the virtual disk.
 
 ### Installing i3-gaps
-Off the bat Gnome feels sluggish on VirtualBox and I'll leave everything as is after installing system updates. [i3-gaps](https://github.com/Airblader/i3) is a fork of i3 that powers a lot of [eye-candy](reddit.com/r/unixporn) desktops and I'll go straight for it.
+Off the bat Gnome feels sluggish on VirtualBox and I'll leave everything as is after installing system updates. [i3-gaps](https://github.com/Airblader/i3) is a fork of i3 that powers a lot of [eye-candy](https://reddit.com/r/unixporn) desktops and I'll go straight for it.
 
 Starting with the docs
 ```
