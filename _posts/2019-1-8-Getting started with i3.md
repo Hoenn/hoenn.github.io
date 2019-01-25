@@ -77,5 +77,62 @@ bindsym $mod+k focus left
 bindsym $mod+l focus left 
 ```
 
+### Appearance
+I defined a few variables with `set $name-color` to make it a easier to tweak, and used the color codes from the Arc-Dark theme. In my i3 config I added the following
+
+```ini
+# Settled on this default
+gaps inner 20
+gaps outer 10
+
+# Removed the status bar (just shows workspaces for now)
+bar {
+	colors {
+		background $bg-color
+		focused_workspace $bg-color $bg-color $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
+	}
+}
+
+
+# Not too sure how I'll use workspaces, but setting this as an example
+# λ here was a lambda unicode character from an installed font
+set $workspace1 "1:λ"
+...
+# Changing how the workspace is displayed on the status bar
+bindsym $mod+1 workspace $workspace1
+...
+bindsym $mod+Shift+1 move container to workspace $workspace1
+```
+I also found an alternative to `dmenu` called `Rofi` which I installed, switching the keybindings a bit since I'm used to `Win+R` already but don't usually use an application finder on Linux.
+```ini
+bindsym $mod+r exec rofi -show run -config /home/hoenn/.config/rofi/config
+```
+The `rofi` config just contains a theme I found on Github, edited to remove the odd alternating striped rows.
+
+```ini
+rofi.theme: ~/.config/rofi/themes/arc-dark.rasi
+```
+
+The final piece of configuration for now, at least before digging into the `~/.vimrc` I've been carrying for years, was to pretty up the terminal's color scheme. I hadn't installed a different terminal emulator from the default, I imagine that's likely to change. 
+
+I found [pywal](https://github.com/dylanaraps/pywal), this will generate colorschemes from a wallpaper. There's some extra config to have it theme _all the things_ but I decided to keep it local to the terminal, leaving the i3 bar and anything else alone. I fully expect to change my theme far more often when it's this easy.
+
+```ini
+# ~/.config/i3/config : regenerate the pywal colorscheme on startup, this also sets the wallpaper
+# so we don't need to exec_always feh
+exec_always --no-start-up-id wal -i ~/Pictures/wallpaper.jpg
+
+# ~/.zshrc: required for new terminals windows to keep the color theme
+(cat ~/.cache/wal/sequences &)
+
+# ~/.xinitrc: would need to add this here, but don't since i3 exec_always takes care of it
+wal -R
+```
+
+
 ## Conclusion
- Overall I think I vastly overestimated how hard it would be to at least get going with i3, having only heard about it from co-workers and admired from afar. Next I'd like to get to theming, and getting the rest of my usual kit setup on this new system.
+ Overall I think I vastly overestimated how hard it would be to at least get going with i3, having only heard about it from co-workers and admired from afar. There are a lot of resources to get going, though I had really bad results with the `compton` compositor and couldn't find many easy answers there. Next I'd like to get the rest of my usual kit setup on this new system.
+
+![image-center](/assets/images/i3/last.png){: .align-center}
