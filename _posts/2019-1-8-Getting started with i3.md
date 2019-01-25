@@ -7,7 +7,7 @@ thumbnail: /assets/images/i3/ubuntu-filled.png
 ---
 
 ## Background
-After months of using `tmux` as a dev environment I'm starting to see just how much I like the idea of a tiling window manager. For the sake of learning, I'm going to walk through the install of [i3](link) starting from a fresh [Ubuntu](http://releases.ubuntu.com/18.04/) install, and hopefully make it pretty by the end.
+After months of using `tmux` as a dev environment I'm starting to see just how much I like the idea of a tiling window manager. I've spent nearly all my time on xfce systems and I'm interested what else is out there. I'm going to walk through the install of [i3](link) starting from a fresh [Ubuntu](http://releases.ubuntu.com/18.04/) install, and hopefully make it pretty by the end.
 
 ## Getting Started
 To start off I'll provision a new Virtual Machine in [VirtualBox](https://www.virtualbox.org/) with a decent amount of memory and disk space to accomodate software development. 4 gigs of RAM and 32 gigs for storage is probably more than I'll need, I can always adjust this later. I'll start off with this Ubuntu 18.04 iso, which has Gnome on it by default, then just finish the install onto the virtual disk.
@@ -56,10 +56,10 @@ There are a multitude of `gaps` arguments, but for now I'll just use `inner` to 
 
 ![image-center](/assets/images/i3/gaps.png){: .align-center}
 
-Looks like the inner setting worked out. Going on a quick google hunt for an explanation of the `gaps` options I found this [post](https://classicforum.manjaro.org/index.php?topic=27260.0) on the Manjaro forums. It offers up some sensible options for the i3 config file to play around with gaps. It makes it pretty quick to discover what's a good `gaps inner/outer px` setting, and seems handy to keep around.
+Looks like the inner setting worked out. Going on a quick google hunt for an explanation of the `gaps` options I found a [post](https://classicforum.manjaro.org/index.php?topic=27260.0) on the Manjaro forums. It offers up some sensible options for the i3 config file to play around with gaps. It makes it pretty quick to discover a good `gaps inner/outer px` setting, it also seems handy to keep around for on the fly gap resizing.
 
 ### Keybind customization
-The main reason I wanted to try out `i3` is because I'm starting to get annoyed with `tmux`. `tmux` is my daily driver for managing my terminal, but doesn't play well at all with color settings and I've spent enough work hours fiddling with `set T_Co` and `set -g default-terminal` that moving forward it would be nice to go without that particular fuss. `tmux` is incredibly powerful but it doesn't feel built for my use case sometimes.
+The main reason I wanted to try out `i3` is because I'm starting to get annoyed with `tmux`. `tmux` is my daily driver for managing my terminal, but doesn't play well at all with color settings and I've spent enough work hours fiddling with `set T_Co` and `set -g default-terminal` that moving forward it would be nice to go without that particular fuss. `tmux` is incredibly powerful but having pane management only within the terminal is frustrating.
 
 With that said, my brain is decently hardwired for my custom `tmux` bindings. Possibly against the grain, but `Mod+Shift+q` is just not comfortable to press. Here's my first pass at adjusting keybindings (careful to re-assign any overwrites)
 
@@ -78,4 +78,4 @@ bindsym $mod+l focus left
 ```
 
 ## Conclusion
- Overall I think I vastly overestimated how hard it would be to at least get going with i3, having only heard about it from co-workers and admired from afar. Next I'd like to get to theming, and getting the rest of my usual kit setup on this new VM
+ Overall I think I vastly overestimated how hard it would be to at least get going with i3, having only heard about it from co-workers and admired from afar. Next I'd like to get to theming, and getting the rest of my usual kit setup on this new system.
