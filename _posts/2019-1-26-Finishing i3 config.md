@@ -15,7 +15,8 @@ In the previous post: I set up a workspace variable with `set` and created an ic
 focus_follows_mouse no
 
 # Set an icon and create the workspace 2 variable
-set $workspace2 "2:"
+# Just like before I actually pasted in the glyph for (pen-unicode) 
+set $workspace2 "2:(pen-unicode)"
 # Always open VSCode in workspace2
 assign [class="Code"] $workspace2
 ```
@@ -66,6 +67,7 @@ At this point I'm giving `zsh` a try. I decided to load download `oh-my-zsh` to 
  I don't have any particular reason to use `zsh` over `bash`, but in the spirit of having a side project, it'll be nice to see what I'm missing out on. I ended up installing plugins for bash to accomplish some of the "out of the box" features I have on `zsh`, but I'm ignorant of any differences so far that would annoy me.
 
  ## Conclusion
+
  A bit of a shorter post, but there wasn't that much to do, certainly not much I wasn't familiar with so far. I like the current state of this machine and it was a fun experiment to have something to write about, even if a bit simple and redundant to recite available resources. 
  
  Configuring a DE or WM, getting your favorite programs installed and running... it's an inspiring ritual that has me excited to get to work.
