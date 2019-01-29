@@ -5,11 +5,11 @@ thumbnail: /assets/images/go/gopher.png
 In this post I'll run through a protobuf example where I learned more about type switching and assertions
 
 ## Background
-In the time I've spent programming large swathes of has been spent stuck to one language or another depending on what projects I was working on. 
+In the time I've spent programming large swathes of time has been spent stuck to one language or another depending on what projects I was working on. 
 
 My personal pie chart of time spent (not projects completed) is along the lines of Java (40%), JavaScript(20%), Go (20%), TypeScript(10%), Python(5%), Haskell (5%). 
 
-While I haven't always had the chance to spend my time, picking the right tool for the job, I'm very drawn to expressive type systems and static typing. Now, at work, it's not really up to what language I'm working in and to be completely honest I wouldn't make a case for a switch anyway. 
+While I haven't always had the choice of how to spend development time, picking the right tool for the job, I'm very drawn to expressive type systems and static typing. Now, at work, it's not really up to what language I'm working in and to be completely honest I wouldn't make a `case` for a `switch` anyway. 
 
 I decided to write this post to show a couple of the stumbles I've had not thinking like a Gopher.
 
