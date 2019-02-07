@@ -121,7 +121,8 @@ type LoginEmailer struct {
 }
 func (l LoginEmailer) Send() error {
     //This is an error! isLogin_Kind does not implement Formatter!!
-    b := l.login.GetKind().Format() }
+    b := l.login.GetKind().Format() 
+}
 ```
 This is certainly not what I expected to happen. The issue here really arises from the fact that `GetKind()` does not return a `Login_Pass`, `Login_Qrdata` or some interface type that matches both. `GetKind` would be generated as
 ```go
