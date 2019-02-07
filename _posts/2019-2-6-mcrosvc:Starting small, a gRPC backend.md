@@ -5,10 +5,10 @@ toc_icon: "beer"
 toc_sticky: true
 thumbnail: /assets/images/go/gopher.png
 ---
-Creating an example microservice system first hand
+Building a sample gRPC backend database API
 
-## Project structure
-The idea behind this article is to explore the _basics_ of writing a small handful of microservices that can be built upon to explore various topics like [rpc](https://microservices.io/patterns/communication-style/rpi.html), [event-sourcing](https://microservices.io/patterns/data/event-sourcing.html), [instrumentation](https://microservices.io/patterns/observability/application-metrics.html) and the like. The implementation details will be light but they will hopefully employ powerful real world technology. The code for the project lives on [github](https://github.com/Hoenn/mcrosvc) but the code specific to _this_ post can be found on this [branch](https://github.com/Hoenn/mcrosvc/tree/post1)
+The code for the project lives on [github](https://github.com/Hoenn/mcrosvc) but the code specific to _this_ post can be found on this [branch](https://github.com/Hoenn/mcrosvc/tree/post1)
+
 
 For this project the plan is to create a `web-api` and `userdb` service. The directory structure will be a "mono-repo" where we keep the files for both of these applications in the same repository
 
@@ -99,7 +99,7 @@ func NewUserAPI(database *sql.DB) *UserAPI {
 
 func (d *UserAPI) CreateUser(u *proto.User) (int64, error) {
 	//TODO
-	return nil
+	return 0, nil
 }
 func (d *UserAPI) DeleteUser(u int32) error {
 	return nil
@@ -167,7 +167,7 @@ func (d *DBConn) Format() string {
 }
 ```
 ### Defining our gRPC service API
-At this point `udb` is stubbed out in pretty decent shape. The implementation details for the CRUD operations is pretty simple so I'll skip them for now. Next we'll define a gRPC service in `proto/main.proto`
+At this point `udb` is stubbed out in pretty decent shape. The implementation details for the CRUD operations are pretty simple so I'll skip them for now. Next we'll define a gRPC service in `proto/main.proto`
 
 ```protobuf
 message CreateUserRequest {
@@ -190,7 +190,7 @@ service UDBAPI {
 }
 ```
 When we regenerate our `main.pb.go` file we see the new messages but don't see any 
-changes related to `service UDBAPI`. This is because protobuf doesn't contain an RPC implementation by default, but we can get that feature with a plugin. From now on when we regenerate our `pb.go` we'll use the `grpc` plugin
+changes related to `service UDBAPI`. This is because `protoc` doesn't contain an RPC implementation by default, but we can get that feature with a plugin. From now on when we regenerate our `pb.go` we'll use the `grpc` plugin
 
 `protoc --go_out=plugins=grpc:. *.proto`
 
@@ -205,7 +205,7 @@ type UDBAPIServer interface {
 We'll implement this interface in `pkg/server/server.go` and extract the properties from the request to send to our non rpc oriented API in `pkg/db/api.go`
 
 ### Quick sidetrack to simplify building our project
-For the sake of language agnosticism we'll quickly build out a `Makefile` to quickly build our `go` binary and regenerate our protobufs. This will end up being extendable and we'll automate any other tasks that we might want to do in build, deploy, or test phases.
+For the sake of language agnosticism we'll quickly build out a `Makefile` to build our `go` binary and regenerate our protobufs. This will end up being extendable and we'll automate any other tasks that we might want to do in build, deploy, or test phases.
 
 We'll use seperate Makefiles for both services as well as some shared Makefile for the project that both services might take advantage of.
 ```makefile
