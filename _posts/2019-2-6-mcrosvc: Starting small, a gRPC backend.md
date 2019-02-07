@@ -348,7 +348,7 @@ func startGRPC(udb *server.UDBServer) {
 ```
 We can add a call to `startGRPC` at the end of our main function, if we want to start other routines before blocking we'll have to `go startGRPC` instead of a normal function call. We'll also need to amend `docker-compose.yaml` with the following
 ```yaml
-udb...
+#udb...
     environment:
       GRPC_PORT: '50052'
     expose:
