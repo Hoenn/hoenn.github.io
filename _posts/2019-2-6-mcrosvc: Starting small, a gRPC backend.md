@@ -3,7 +3,7 @@ toc: true
 toc_label: "mcrosvc"
 toc_icon: "beer"
 toc_sticky: true
-thumbnail: /assets/images/go/gopher.png
+thumbnail: /assets/images/icons/gopher.png
 ---
 Building a sample gRPC backend database API
 

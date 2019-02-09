@@ -1,5 +1,5 @@
 ---
-thumbnail: /assets/images/go/gopher.png
+thumbnail: /assets/images/icons/web.png
 ---
 Creating an example microservice system first hand
 
