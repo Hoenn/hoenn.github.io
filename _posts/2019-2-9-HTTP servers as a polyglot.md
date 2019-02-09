@@ -1,6 +1,6 @@
 ---
 toc: true
-toc_label: "mcrosvc"
+toc_label: "HTTP"
 toc_icon: "beer"
 toc_sticky: true
 thumbnail: /assets/images/icons/server.png
