@@ -3,7 +3,7 @@ toc: true
 toc_label: "mcrosvc"
 toc_icon: "beer"
 toc_sticky: true
-thumbnail: /assets/images/icons/flask.png
+thumbnail: /assets/images/icons/arrow.png
 ---
 A http server and web-api in flask for mcrosvc
 
