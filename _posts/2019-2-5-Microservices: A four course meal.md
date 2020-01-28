@@ -9,4 +9,5 @@ The idea behind this set of articles is to explore the _basics_ of writing a sma
 The code for the project lives on [github](https://github.com/Hoenn/mcrosvc)
 
 ### [Starting small: a gRPC backend](../mcrosvc-Starting-small,-a-gRPC-backend/)
+### [Building the web-api](../mcrosvc-Building-the-web-api/)
 

@@ -33,9 +33,6 @@ mcrosvc/
 
 This is more of an exercise than a real application, as `web-api` here is superfluous. If however, there was more complicated edge logic to be bound somewhere, perhaps `web-api` would see some major benefit of being a separate service. It could also serve multiple underlying services _for better or worse_.
 
-I'm not an expert on any of the following, take any code or design with a grain of salt
-{: .notice--info} 
-
 ## proto definitions
 Since both applications will be making use of our generated protobufs, I'll define a simple message that we expect to be passed between them in requests and responses. I don't think I would normally suggest using a protobuf to "define a type" for our consumer code, but in this case it will be a simple structure and clear that both `web-api` and `udb` will utilize it.
 
@@ -275,22 +272,38 @@ func (s *UDBServer) CreateUser(ctx context.Context, in *proto.CreateUserRequest)
 
 // pkg/db/api.go
 func (d *UserAPI) CreateUser(ctx context.Context, u *proto.User) (int64, error) {
-	res, err := WithAutomaticCommit(ctx, d.db, func(tx *sql.Tx) (sql.Result, error) {
-		res, err := createInsertUserQuery(u).RunWith(tx).ExecContext(ctx)
-		if err != nil {
-			return nil, errors.Wrap(err, "could not insert user")
-		}
-		return res, nil
-	})
-	id, err := res.LastInsertId()
+	tx, err := d.db.BeginTx(ctx, &sql.TxOptions{})
+	if err != nil {
+		return -1, err
+	}
+	var id int64
+	res, err := createInsertUserQuery(u).RunWith(tx).ExecContext(ctx)
+	if err != nil {
+		return -1, errors.Wrap(err, "could not insert user")
+	}
+	id, err = res.LastInsertId()
 	if err != nil {
 		return -1, errors.Wrap(err, "could not get id from insert")
 	}
 
 	return id, err
 }
+
+// pkg/db/queries.go
+func createInsertUserQuery(u *proto.User) sq.InsertBuilder {
+	return sq.Insert(
+		"users",
+	).Columns(
+		"username",
+		"age",
+	).Values(
+		u.Name,
+		u.Age,
+	)
+}
 ```
-This seems like a good way to separate our concerns with gRPC requests and responses and our actual database API. 
+This seems like a good way to separate our concerns with gRPC requests and responses and our actual database API. Here we're using `sq "github.com/Masterminds/squirrel"` for SQL generation. This is something we can come back and improve upon later, such as using [gorm](http://gorm.io/).
+
 
 ### Quick detour to set up mysql and docker-compose
 Now that we've implemented the stubbed methods of both our gRPC API and our backend database API, we can make a comfortable setup to run `mysql` in a docker container. To do that we'll need a minimal `docker-compose.yml` config. Well also set up a minimal configuration for running the `udb-server` binary along with the database.
